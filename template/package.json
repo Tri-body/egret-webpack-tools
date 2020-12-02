@@ -1,0 +1,35 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.0.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^4.5.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "loader-utils": "^2.0.0",
+    "node-notifier": "^8.0.0",
+    "portfinder": "^1.0.28",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.1.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.4.0"
+  },
+  "scripts": {
+    "dev": "webpack serve --inline --progress --config config/webpack.dev.conf.js",
+    "build": "webpack --config config/webpack.prod.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
