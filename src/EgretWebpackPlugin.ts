@@ -1,14 +1,11 @@
-import { Compiler } from 'webpack'
-import fs from 'fs-extra'
-import path from 'path'
-import find from 'find'
-import Concat from 'concat-with-sourcemaps'
-import { toAssets, toAssetsByOutputName } from './utils'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { IOptions } from './types'
+import { Compiler } from 'webpack'
 import { createLibs } from './createLibs'
+import { createThm } from './createThm'
+import { IOptions } from './types'
+import { toAssets } from './utils'
 
-const NAME = 'egret-webpack-plugin'
+export const NAME = 'egret-webpack-plugin'
 
 export class EgretWebpackPlugin {
 
@@ -39,6 +36,8 @@ export class EgretWebpackPlugin {
 
     compiler.hooks.make.tapAsync(NAME, async (compilation, callback) => {
       let filename = await createLibs(compiler, compilation, this.options)
+      files.push(filename)
+      filename = await createThm(compiler, compilation, this.options)
       files.push(filename)
       callback()
     })

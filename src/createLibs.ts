@@ -33,5 +33,5 @@ export async function createLibs(compiler: Compiler, compilation: compilation.Co
     content = await fs.readFile(file)
     concat.add(path.basename(file), content)
   }
-  return toAssetsByOutputName(compilation, concat.content, BASE_NAME, options.name)
+  return toAssetsByOutputName(compilation, concat.content, BASE_NAME, options.libsName)
 }
