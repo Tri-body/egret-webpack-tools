@@ -1,10 +1,11 @@
 export interface IOptions {
   context?: string
   mode?: 'production' | 'development'
-  libsName?: string
-  thmName?: string
   resource?: string
   sdkRoot?: string
+  libsName?: string
+  thmName?: string
+  assetsName?: string
 }
 
 export interface EXMLFile2 {

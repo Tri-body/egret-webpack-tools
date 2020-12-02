@@ -37,23 +37,3 @@ export function toAssetsByOutputName(compilation: any, buffer: Buffer, baseName:
   toAssets(compilation, buffer, realName)
   return realName
 }
-
-function getFileType(url: string) {
-  const ext = path.extname(url).toLowerCase()
-  switch (ext) {
-    case '.mp3':
-    case '.mp4':
-      return 'media'
-    case '.png':
-    case '.jpg':
-      return 'img'
-    case '.fnt':
-    case '.json':
-      return 'data'
-    case '.zip':
-    case '.dbz':
-      return 'bin'
-    default:
-      return 'other'
-  }
-}
