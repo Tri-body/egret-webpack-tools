@@ -1,35 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import find from 'find'
-
-interface EXMLFile2 {
-  filename: string;
-  contents: string;
-  className?: string;
-  usedClasses?: string[];
-  usedEXML?: string[];
-  depends?: EXMLDepends;
-  preload?: boolean;
-  theme?: string;
-}
-
-interface EXMLFile {
-  path: string;
-  theme?: string;
-  preload?: boolean;
-}
-
-interface EgretEUIThemeConfig {
-  path: string;
-  skins?: { [host: string]: string };
-  exmls?: Array<any>;
-  autoGenerateExmlsList?: boolean;
-  styles?: any;
-}
-
-interface EXMLDepends {
-  [name: string]: boolean;
-}
+import { EgretEUIThemeConfig, EXMLFile, EXMLFile2 } from './types';
 
 //@ts-ignore
 global.egret = global.egret || {};
