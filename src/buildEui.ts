@@ -10,8 +10,6 @@ global.registerClass = "egret";
 //@ts-ignore
 egret.args = {}
 
-let sdkRoot: string
-
 function checkSdkExist(path: string): string {
   if (path) {
     if (fs.existsSync(path)) {
@@ -28,7 +26,7 @@ function checkSdkExist(path: string): string {
     encoding: 'utf-8'
   }).trim()
   if (path && fs.existsSync(path)) {
-    console.log(`find egret sdk root: ${path}`)
+    // console.log(`egret sdk root: ${path}`)
     return path
   }
   console.warn(`not found egret sdk!`)
@@ -75,10 +73,10 @@ export async function buildEui(resPath: string, sdkRoot?: string, projectRoot?: 
       themeDatas.push(data)
     }
   }
-  return publishEXML(exmls, themeDatas)
+  return publishEXML(sdkRoot, exmls, themeDatas)
 }
 
-function publishEXML(exmls: EXMLFile2[], themeDatas: EgretEUIThemeConfig[]) {
+function publishEXML(sdkRoot: string, exmls: EXMLFile2[], themeDatas: EgretEUIThemeConfig[]) {
   const exml = require(`${sdkRoot}/tools/lib/eui/EXML`)
   const exmlParser = require(`${sdkRoot}/tools/lib/eui/EXMLParser`)
 

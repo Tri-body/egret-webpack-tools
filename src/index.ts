@@ -1,7 +1,2 @@
-import { buildEui } from './buildEui'
-import { EgretWebpackPlugin } from './EgretWebpackPlugin'
-
-export {
-  buildEui,
-  EgretWebpackPlugin
-}
+export { buildEui } from './buildEui'
+export { EgretWebpackPlugin } from './EgretWebpackPlugin'

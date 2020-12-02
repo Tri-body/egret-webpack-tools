@@ -1,11 +1,11 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { Compiler } from 'webpack'
 import { createLibs } from './createLibs'
 import { createThm } from './createThm'
+import { processRes } from './processRes'
 import { IOptions } from './types'
 import { toAssets } from './utils'
 
-const NAME = 'egret-webpack-plugin'
+const NAME = 'EgretWebpackPlugin'
 
 export class EgretWebpackPlugin {
 
@@ -20,35 +20,44 @@ export class EgretWebpackPlugin {
     let js: string[]
 
     compiler.hooks.compilation.tap(NAME, (compilation) => {
-      const hooks = HtmlWebpackPlugin.getHooks(compilation)
-      if (!hooks) {
-        console.warn('not found HtmlWebpackPlugin hooks!')
-      } else {
-        hooks.beforeAssetTagGeneration.tap(NAME, data => {
-          js = [...files, ...data.assets.js]
-          data.assets.js = js
-          return data
-        })
+      const [htmlWebpackPlugin] = compiler.options.plugins.filter(plugin => plugin.constructor.name === 'HtmlWebpackPlugin')
+      const getHooks = htmlWebpackPlugin.constructor['getHooks']
+      if (typeof getHooks !== 'function') {
+        console.warn('not found HtmlWebpackPlugin.getHooks function!')
+        return
       }
+      getHooks(compilation).beforeAssetTagGeneration.tap(NAME, data => {
+        js = [...files, ...data.assets.js]
+        data.assets.js = js
+        return data
+      })
     })
 
     compiler.hooks.make.tapAsync(NAME, async (compilation, callback) => {
-      let filename = await createLibs(compiler, compilation, this.options)
-      files.push(filename)
-      filename = await createThm(compiler, compilation, this.options)
-      files.push(filename)
+      try {
+        console.log('create egret libs...')
+        let filename = await createLibs(compiler, compilation, this.options)
+        files.push(filename)
+        console.log('build egret thm...')
+        filename = await createThm(compiler, compilation, this.options)
+        files.push(filename)
+        console.log('process egret resource...')
+        await processRes(compiler, compilation, this.options)
+      } catch (error) {
+        console.error(error)
+      }
       callback()
     })
 
     compiler.hooks.emit.tapAsync(NAME, async (compilation, callback) => {
       if (!js) {
-        js = []
-        for (let ep of compilation.entrypoints.values()) {
+        js = [...files]
+        for (let ep of Array.from(compilation.entrypoints.values())) {
           js.push(...ep.getFiles())
         }
         js = js.filter((v, i, arr) => arr.indexOf(v) === i)
       }
-      toAssets(compilation, Buffer.from(JSON.stringify({ initial: files, game: js })), 'manifest.json')
+      toAssets(compilation, Buffer.from(JSON.stringify({ initial: js, game: [] })), 'manifest.json')
       callback()
     })
   }
