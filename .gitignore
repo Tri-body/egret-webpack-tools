@@ -24,3 +24,6 @@ temp
 *.log
 test
 package-lock.json
+
+bin-debug
+bin-release

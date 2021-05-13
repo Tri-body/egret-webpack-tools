@@ -1,10 +1,9 @@
 {
-  "name": "project-name",
+  "name": "ex-01",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^3.0.0",

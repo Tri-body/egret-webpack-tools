@@ -17,7 +17,9 @@ function checkSdkExist(path: string): string {
     }
     console.warn(`egret sdk root: ${path} is not exist!`)
   }
-  if (process.platform === 'win32') { // ignore windows os
+  if (process.platform === 'win32') {
+    // todo: support windows
+    console.error('暂不支持windows环境')
     return null
   }
   const cwd = process.cwd()

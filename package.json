@@ -7,9 +7,9 @@
   "scripts": {
     "build": "rimraf ./dist && tsc -p ."
   },
-  "keywords": [],
+  "keywords": ["egret", "webpack"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/find": "^0.2.1",
     "@types/fs-extra": "^9.0.4",

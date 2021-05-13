@@ -13,7 +13,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const notifier = require('node-notifier')
 const {
   EgretDevWebpackPlugin
-} = require('egret-webpack-tools')
+} = require('../../../dist')
 
 const defineVars = {}
 

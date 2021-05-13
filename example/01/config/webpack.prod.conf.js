@@ -13,13 +13,11 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const {
   EgretWebpackPlugin
-} = require('egret-webpack-tools')
+} = require('../../../dist')
 // const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 
 const defineVars = {}
-
-const isProduction = process.env.DEPLOY_ENV === 'production'
 
 let webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',

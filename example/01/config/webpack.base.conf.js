@@ -58,7 +58,7 @@ module.exports = {
         }
       },
       {
-        test: /\.dbz$/,
+        test: /\.zip$/,
         loader: 'url-loader',
         options: {
           limit: 10,
