@@ -1,6 +1,6 @@
 ### egret webpack tools
 
-优化egret开发方式，使用wepback工作流进行开发相关工具
+webpack plugins for egret
 
 ----
 

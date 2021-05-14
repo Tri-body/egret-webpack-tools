@@ -5,9 +5,16 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf ./dist && tsc -p ."
+    "build": "rimraf ./dist && tsc -p .",
+    "prepublish": "npm run build"
   },
-  "keywords": ["egret", "webpack"],
+  "repository": {
+    "url": "https://github.com/Tri-body/egret-webpack-tools"
+  },
+  "keywords": [
+    "egret",
+    "webpack"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
