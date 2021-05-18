@@ -9,7 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const portfinder = require('portfinder')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
 const notifier = require('node-notifier')
 const {
   EgretDevWebpackPlugin

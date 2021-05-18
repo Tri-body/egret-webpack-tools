@@ -13,7 +13,6 @@
     "fork-ts-checker-webpack-plugin": "^6.0.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.5.0",
-    "imagemin-webpack-plugin": "^2.4.2",
     "loader-utils": "^2.0.0",
     "node-notifier": "^8.0.0",
     "portfinder": "^1.0.28",

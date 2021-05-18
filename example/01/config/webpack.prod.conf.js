@@ -10,11 +10,9 @@ const {
 } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 const {
   EgretWebpackPlugin
 } = require('egret-webpack-tools')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 
 const defineVars = {}
@@ -65,29 +63,8 @@ let webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.NamedChunksPlugin(),
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      pngquant: {
-        quality: '100'
-      }
-    }),
     new CaseSensitivePathsPlugin(),
     new EgretWebpackPlugin()
-    // new CopyWebpackPlugin([{
-    //   from: path.resolve(__dirname, '../public'),
-    //   to: path.resolve(__dirname, '../dist')
-    // }])
   ]
 })
-
-// if (process.env.npm_config_report) {
-//   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-//   webpackConfig.plugins.push(new BundleAnalyzerPlugin({
-//     analyzerMode: 'static',
-//     openAnalyzer: false,
-//     generateStatsFile: false,
-//     reportFilename: 'report.html'
-//   }))
-// }
-
 module.exports = webpackConfig
