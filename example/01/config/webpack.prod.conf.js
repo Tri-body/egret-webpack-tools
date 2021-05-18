@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const {
   EgretWebpackPlugin
-} = require('egret-webpack-tools')
+} = require('../../../dist/EgretWebpackPlugin')
 
 
 const defineVars = {}
