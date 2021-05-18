@@ -1,7 +1,7 @@
 {
   "name": "egret-webpack-tools",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "webpack plugins for egret",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
