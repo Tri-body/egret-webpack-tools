@@ -13,7 +13,7 @@ export async function processRes(compiler: Compiler, compilation: compilation.Co
   const resPath = path.join(context, options.resource || DEFAULT_RES_PATH)
   const resJsonPath = path.join(resPath, DEFAULT_RES_NAME)
   if (!fs.existsSync(resJsonPath)) {
-    console.log('no egret res cfg, skip...')
+    console.log(`${resJsonPath} not esist, skip...`)
     return
   }
   const resBaseName = options.assetsName || BASE_NAME
