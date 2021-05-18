@@ -48,7 +48,7 @@ let webpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: path.resolve(__dirname, '../template/web/index.html'),
       // chunksSortMode: 'dependency',
-      inject: false,
+      inject: true,
       favicon: path.resolve(__dirname, '../favicon.ico'),
       minify: {
         collapseWhitespace: true,

@@ -40,7 +40,9 @@ export class EgretWebpackPlugin {
         files.push(filename)
         console.log('build egret thm...')
         filename = await createThm(compiler, compilation, this.options)
-        files.push(filename)
+        if (filename) {
+          files.push(filename)
+        }
         console.log('process egret resource...')
         await processRes(compiler, compilation, this.options)
       } catch (error) {

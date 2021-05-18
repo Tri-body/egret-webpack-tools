@@ -15,7 +15,7 @@ export async function createThm(compiler: Compiler, compilation: compilation.Com
   const resJsonPath = path.join(resPath, DEFAULT_NAME)
   if (!fs.existsSync(resJsonPath)) {
     console.log(`${resJsonPath} not esist, skip...`)
-    return
+    return null
   }
   const files = await buildEui(resPath, options.sdkRoot, context)
   if (!files || files.length === 0) return null
