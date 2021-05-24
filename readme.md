@@ -16,6 +16,8 @@ egret一直让人吐槽的地方就是namespace的开发方式和编译工具不
 
 * eui的编译 - 其实代码本身用webpack编译是没啥问题的，需要特殊处理的是eui的编译，这一块还是需要用到egret sdk中的编译工具。基本逻辑就是查找本机安装的egret sdk，调用相关接口
 * egret资源的处理，主要是指走egret那套资源管理的resource目录下的资源，因为要和eui配置使用，所以还是要保留的。其他资源可以结合url-loader走webpack的资源管理方式。
+* dev模式里webpack只负责编译ts代码，插件用来生成manifest.json，入口走egret项目根目录的iindex.html,
+* prod模式会完整处理egret的thm和resource(如果有)，manifest.json已经没用了，入口其实可以不走egret的index.html里的那些逻辑，代码里自己去runEgret
 
 ##### 编译调试
 
